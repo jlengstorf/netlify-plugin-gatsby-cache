@@ -10,7 +10,7 @@ module.exports = ({
 
   return {
     name: "netlify-plugin-persist-gatsby-cache",
-    preBuild: ({ constants }) => {
+    preBuild: async ({ constants }) => {
       const netlifyCacheDir = path.join(constants.CACHE_DIR, gatsby_cache_dir);
       const netlifyPublicDir = path.join(
         constants.CACHE_DIR,
@@ -22,7 +22,7 @@ module.exports = ({
         return;
       }
 
-      Promise.all([
+      await Promise.all([
         fs.copy(netlifyCacheDir, gatsbyCacheDir),
         fs.copy(netlifyPublicDir, gatsbyPublicDir)
       ]).then(() => {
@@ -31,14 +31,14 @@ module.exports = ({
         );
       });
     },
-    saveCache: ({ constants }) => {
+    saveCache: async ({ constants }) => {
       const netlifyCacheDir = path.join(constants.CACHE_DIR, gatsby_cache_dir);
       const netlifyPublicDir = path.join(
         constants.CACHE_DIR,
         gatsby_public_dir
       );
 
-      Promise.all([
+      await Promise.all([
         fs.copy(gatsbyCacheDir, netlifyCacheDir),
         fs.copy(gatsbyPublicDir, netlifyPublicDir)
       ]).then(() => {
