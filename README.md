@@ -13,17 +13,23 @@ plugins:
   - type: netlify-plugin-gatsby-cache
 ```
 
-## Config
+This plugin determines the location of your `.cache` folder by looking a the `publish` folder configured for Netlify deployment (this is typically set in your `netlify.yml`/`netlify.toml` in the `build` section). This means that if your Gatsby site successfully deploys, it will be cached as well with no config required! 🎉
 
-If you don’t keep your Gatsby installation at the root of yoru repo (e.g. you’re using workspaces or a subdirectory for your site), you can change the paths to the `.cache` and `public` directories with config options:
+## How much of a difference does this plugin make in build times?
 
-```yml
-plugins:
-  - type: netlify-plugin-gatsby-cache
-    config:
-      gatsby_public_dir: site/public
-      gatsby_cache_dir: site/.cache
-```
+Each Gatsby site is different, so build times vary widely between them, but one common slowdown in Gatsby builds is processing and transforming images. Gatsby is smart enough to check if these transformations have already been done and skip them, but in order to get that benefit in a build pipeline (e.g. Netlify) the `public` and `.cache` directories need to be preserved between builds. That’s what this plugin does!
+
+On a small site (5 GraphQL queries, no image processing, 32 pages), build times dropped by 27% when using this plugin:
+
+- without cache: ✔  Netlify Build completed in 19263ms
+- with cache: ✔  Netlify Build completed in 14098ms
+
+On a larger site (231 GraphQL queries, 1,871 images, 224 pages), build times dropped by 66%:
+
+- without cache: ✔  Netlify Build completed in 150373ms
+- with cache: ✔  Netlify Build completed in 50384ms
+
+tl;dr: Repeat builds with lots of images will be _much_ faster. With few or no images, the difference will be there, but it won’t be as pronounced.
 
 ## Want to learn how to create your own Netlify Build Plugins?
 
