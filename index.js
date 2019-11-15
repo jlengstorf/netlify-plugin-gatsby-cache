@@ -22,6 +22,19 @@ module.exports = ({
         gatsby_public_dir
       );
 
+      console.log(
+        JSON.stringify(
+          {
+            gatsbyCacheDir,
+            gatsbyPublicDir,
+            netlifyCacheDir,
+            netlifyPublicDir
+          },
+          null,
+          2
+        )
+      );
+
       if (!fs.existsSync(netlifyCacheDir) || !fs.existsSync(netlifyPublicDir)) {
         console.log("No Gatsby cache found. Building fresh...");
         return;
@@ -49,6 +62,19 @@ module.exports = ({
       const netlifyPublicDir = path.join(
         constants.CACHE_DIR,
         gatsby_public_dir
+      );
+
+      console.log(
+        JSON.stringify(
+          {
+            gatsbyCacheDir,
+            gatsbyPublicDir,
+            netlifyCacheDir,
+            netlifyPublicDir
+          },
+          null,
+          2
+        )
       );
 
       await Promise.all([
