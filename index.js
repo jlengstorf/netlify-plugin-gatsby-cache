@@ -5,12 +5,17 @@ module.exports = ({
   gatsby_cache_dir = ".cache",
   gatsby_public_dir = "public"
 }) => {
-  const gatsbyCacheDir = path.join(__dirname, "..", gatsby_cache_dir);
-  const gatsbyPublicDir = path.join(__dirname, "..", gatsby_public_dir);
-
   return {
     name: "netlify-plugin-persist-gatsby-cache",
     preBuild: async ({ constants }) => {
+      const gatsbyCacheDir = path.join(
+        path.dirname(constants.CONFIG_PATH),
+        gatsby_cache_dir
+      );
+      const gatsbyPublicDir = path.join(
+        path.dirname(constants.CONFIG_PATH),
+        gatsby_public_dir
+      );
       const netlifyCacheDir = path.join(constants.CACHE_DIR, gatsby_cache_dir);
       const netlifyPublicDir = path.join(
         constants.CACHE_DIR,
@@ -32,6 +37,14 @@ module.exports = ({
       });
     },
     saveCache: async ({ constants }) => {
+      const gatsbyCacheDir = path.join(
+        path.dirname(constants.CONFIG_PATH),
+        gatsby_cache_dir
+      );
+      const gatsbyPublicDir = path.join(
+        path.dirname(constants.CONFIG_PATH),
+        gatsby_public_dir
+      );
       const netlifyCacheDir = path.join(constants.CACHE_DIR, gatsby_cache_dir);
       const netlifyPublicDir = path.join(
         constants.CACHE_DIR,
