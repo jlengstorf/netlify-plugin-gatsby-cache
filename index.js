@@ -43,11 +43,13 @@ module.exports = ({
       await Promise.all([
         fs.copy(netlifyCacheDir, gatsbyCacheDir),
         fs.copy(netlifyPublicDir, gatsbyPublicDir)
-      ]).then(() => {
-        console.log(
-          "Loaded a previous Gatsby cache. Buckle up; we’re about to go FAST. ⚡️"
-        );
+      ]).catch(() => {
+        console.error(error.message);
       });
+
+      console.log(
+        "Loaded a previous Gatsby cache. Buckle up; we’re about to go FAST. ⚡️"
+      );
     },
     saveCache: async ({ constants }) => {
       const gatsbyCacheDir = path.join(
@@ -80,9 +82,11 @@ module.exports = ({
       await Promise.all([
         fs.copy(gatsbyCacheDir, netlifyCacheDir),
         fs.copy(gatsbyPublicDir, netlifyPublicDir)
-      ]).then(() => {
-        console.log("Stored the Gatsby cache to speed up future builds.");
+      ]).catch(error => {
+        console.error(error.message);
       });
+
+      console.log("Stored the Gatsby cache to speed up future builds.");
     }
   };
 };
