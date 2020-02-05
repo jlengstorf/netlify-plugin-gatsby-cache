@@ -1,6 +1,6 @@
 {
   "name": "netlify-plugin-gatsby-cache",
-  "version": "0.2.1-canary.5",
+  "version": "0.2.1-canary.6",
   "description": "Persist the Gatsby cache between Netlify builds for huge build speed improvements!",
   "main": "index.js",
   "repository": "https://github.com/jlengstorf/netlify-plugin-gatsby-cache.git",
