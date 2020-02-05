@@ -1,3 +1,5 @@
+const fs = require('fs');
+
 module.exports = () => {
   return {
     name: 'netlify-plugin-gatsby-cache',
@@ -10,6 +12,14 @@ module.exports = () => {
         `${netlifyConfig.build.publish}/.cache`,
         `${netlifyConfig.build.publish}/public`,
       ]);
+
+      if (fs.existsSync(`${netlifyConfig.build.publish}/.cache`)) {
+        console.log('cache dir found!');
+      } else {
+        console.log('no cache dir :(');
+      }
+
+      console.log({ hasCache });
 
       if (hasCache) {
         console.log(
@@ -26,6 +36,12 @@ module.exports = () => {
         `${netlifyConfig.build.publish}/.cache`,
         `${netlifyConfig.build.publish}/public`,
       ]);
+      console.log({ savedCache });
+      if (fs.existsSync(`${netlifyConfig.build.publish}/.cache`)) {
+        console.log('cache dir found!');
+      } else {
+        console.log('no cache dir :(');
+      }
 
       if (savedCache) {
         console.log('Stored the Gatsby cache to speed up future builds.');
