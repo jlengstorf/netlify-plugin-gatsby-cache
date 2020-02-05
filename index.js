@@ -1,10 +1,10 @@
 module.exports = () => {
   return {
     name: 'netlify-plugin-gatsby-cache',
-    async onPreBuild({ pluginConfig, utils }) {
+    async onPreBuild({ netlifyConfig, utils }) {
       const hasCache = await utils.cache.restore([
-        `${pluginConfig.build.publish}/.cache`,
-        `${pluginConfig.build.publish}/public`,
+        `${netlifyConfig.build.publish}/.cache`,
+        `${netlifyConfig.build.publish}/public`,
       ]);
 
       if (hasCache) {
@@ -13,10 +13,10 @@ module.exports = () => {
         );
       }
     },
-    async onSaveCache({ pluginConfig, utils }) {
+    async onSaveCache({ netlifyConfig, utils }) {
       const savedCache = await utils.cache.save([
-        `${pluginConfig.build.publish}/.cache`,
-        `${pluginConfig.build.publish}/public`,
+        `${netlifyConfig.build.publish}/.cache`,
+        `${netlifyConfig.build.publish}/public`,
       ]);
 
       if (savedCache) {
