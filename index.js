@@ -7,6 +7,12 @@ module.exports = () => {
         netlifyConfig.build.publish,
       ];
 
+      const hasCacheOne = await utils.cache.has([ path.join(netlifyConfig.build.publish, '..', '.cache') ])
+      const hasCacheTwo = await utils.cache.has([ netlifyConfig.build.publish ])
+
+      console.log('hasCacheOne', hasCacheOne)
+      console.log('hasCacheTwo', hasCacheTwo)
+
       console.log({ cacheDirectories });
 
       if (await utils.cache.restore(cacheDirectories)) {
