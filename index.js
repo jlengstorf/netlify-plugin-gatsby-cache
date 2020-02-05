@@ -1,5 +1,3 @@
-const path = requrie('path');
-
 module.exports = () => {
   return {
     name: 'netlify-plugin-gatsby-cache',
