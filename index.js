@@ -11,8 +11,6 @@ module.exports = () => {
     async onPreBuild({ constants, utils }) {
       const cacheDirs = getCacheDirs(constants);
 
-      console.log({ cacheDirs });
-
       if (await utils.cache.restore(cacheDirs)) {
         console.log('Found a Gatsby cache. We’re about to go FAST. ⚡️');
       } else {
