@@ -2,33 +2,18 @@
 
 Persist the Gatsby cache between Netlify builds for huge build speed improvements! ⚡️
 
-> NOTE: Netlify Build Plugins are in beta. [To use this plugin, request an invite!](https://www.netlify.com/build/plugins-beta/?utm_source=github&utm_medium=netlify-plugin-gatsby-cache-jl&utm_campaign=devex)
+> NOTE: [Netlify Build Plugins](https://docs.netlify.com/configure-builds/plugins/?utm_source=github&utm_medium=netlify-plugin-gatsby-cache-jl&utm_campaign=devex) are in beta.
 
 ## Usage
 
-First, install the plugin in your repo:
+To install, add the following lines to your `netlify.toml` file:
 
-```bash
-# using npm
-npm install netlify-plugin-gatsby-cache
-
-# or using Yarn
-yarn add netlify-plugin-gatsby-cache
+```toml
+[[plugins]]
+package = "netlify-plugin-gatsby-cache"
 ```
 
-Add the plugin in your `netlify.yml`:
-
-```diff
-  build:
-    command: yarn build
-    publish: public
-    functions: functions
-
-+ plugins:
-+   - type: netlify-plugin-gatsby-cache
-```
-
-This plugin determines the location of your `.cache` folder by looking a the `publish` folder configured for Netlify deployment (this is typically set in your `netlify.yml`/`netlify.toml` in the `build` section). This means that if your Gatsby site successfully deploys, it will be cached as well with no config required! 🎉
+This plugin determines the location of your `.cache` folder by looking at the `publish` folder configured for Netlify deployment (this can be set in your `netlify.toml` in the `[build]` section). This means that if your Gatsby site successfully deploys, it will be cached as well with no config required! 🎉
 
 ## How much of a difference does this plugin make in build times?
 
