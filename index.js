@@ -23,7 +23,7 @@ module.exports = () => {
       if (await utils.cache.save(cacheDirs)) {
         console.log('Stored the Gatsby cache to speed up future builds.');
       } else {
-        console.log('Something went wrong storing the cache.');
+        console.log('No Gatsby build found.');
       }
     },
   };
