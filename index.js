@@ -18,11 +18,10 @@ module.exports = {
   async onPostBuild({ constants, utils }) {
     const cacheDirs = getCacheDirs(constants);
 
-      if (await utils.cache.save(cacheDirs)) {
-        console.log('Stored the Gatsby cache to speed up future builds.');
-      } else {
-        console.log('No Gatsby build found.');
-      }
-    },
-  };
+    if (await utils.cache.save(cacheDirs)) {
+      console.log('Stored the Gatsby cache to speed up future builds.');
+    } else {
+      console.log('No Gatsby build found.');
+    }
+  },
 };
