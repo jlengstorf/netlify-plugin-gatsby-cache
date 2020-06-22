@@ -6,7 +6,9 @@ Persist the Gatsby cache between Netlify builds for huge build speed improvement
 
 ## Usage
 
-To install, add the following lines to your `netlify.toml` file:
+If you don’t want to use the [UI-based installation](http://app.netlify.com/plugins/netlify-plugin-gatsby-cache/install?utm_source=github&utm_medium=gatsby-cache-bp-jl&utm_campaign=devex), you can install manually using `netlify.toml`.
+
+Add the following lines to your `netlify.toml` file:
 
 ```toml
 [build]
