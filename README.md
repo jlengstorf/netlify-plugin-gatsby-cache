@@ -2,7 +2,7 @@
 
 Persist the Gatsby cache between Netlify builds for huge build speed improvements! ⚡️
 
-> NOTE: [Netlify Build Plugins](https://docs.netlify.com/configure-builds/plugins/?utm_source=github&utm_medium=netlify-plugin-gatsby-cache-jl&utm_campaign=devex) are in beta.
+### [One-click install to add this to your Gatsby site](http://app.netlify.com/plugins/netlify-plugin-gatsby-cache/install?utm_source=github&utm_medium=gatsby-cache-bp-jl&utm_campaign=devex)
 
 ## Usage
 
