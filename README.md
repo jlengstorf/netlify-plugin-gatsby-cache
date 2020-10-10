@@ -12,7 +12,7 @@ Currently, there are **two ways to install this plugin on your application**:
 
 ### Installing from your project's code
 
-You can also install this plugin manually using `netlify.toml`. If you want to know more about file-based configuration on Netlify, click [here](https://docs.netlify.com/configure-builds/file-based-configuration/).
+You can also install it manually using `netlify.toml`. If you want to know more about file-based configuration on Netlify, click [here](https://docs.netlify.com/configure-builds/file-based-configuration/).
 
 Add the following lines to your project's `netlify.toml` file:
 
