@@ -2,13 +2,19 @@
 
 Persist the Gatsby cache between Netlify builds for huge build speed improvements! ⚡️
 
-### [One-click install to add this to your Gatsby site](http://app.netlify.com/plugins/netlify-plugin-gatsby-cache/install?utm_source=github&utm_medium=gatsby-cache-bp-jl&utm_campaign=devex)
-
 ## Usage
 
-If you don’t want to use the [UI-based installation](http://app.netlify.com/plugins/netlify-plugin-gatsby-cache/install?utm_source=github&utm_medium=gatsby-cache-bp-jl&utm_campaign=devex), you can install manually using `netlify.toml`.
+Currently, there are **two ways to install this plugin on your application**: 
 
-Add the following lines to your `netlify.toml` file:
+### Installing from Netlify UI
+
+#### [One-click install to add this to your Gatsby site](http://app.netlify.com/plugins/netlify-plugin-gatsby-cache/install?utm_source=github&utm_medium=gatsby-cache-bp-jl&utm_campaign=devex)
+
+### Installing from your project's code
+
+You can also install it manually using `netlify.toml`. If you want to know more about file-based configuration on Netlify, click [here](https://docs.netlify.com/configure-builds/file-based-configuration/).
+
+Add the following lines to your project's `netlify.toml` file:
 
 ```toml
 [build]
@@ -18,9 +24,11 @@ Add the following lines to your `netlify.toml` file:
   package = "netlify-plugin-gatsby-cache"
 ```
 
-Note: The `[[plugins]]` line is required for each plugin, even if you have other plugins in your `netlify.toml` file already.
+> Note: The `[[plugins]]` line is required for each plugin, even if you have other plugins in your `netlify.toml` file already.
 
-This plugin determines the location of your `.cache` folder by looking at the `publish` folder configured for Netlify deployment (this _must_ be set in your `netlify.toml` in the `[build]` section). This means that if your Gatsby site successfully deploys, it will be cached as well with no config required! 🎉
+## How does it work?
+
+This plugin determines the location of your `.cache` folder by looking at the `publish` folder configured for Netlify deployment. This means that if your Gatsby site successfully deploys, it will be cached as well with no config required! 🎉
 
 ## How much of a difference does this plugin make in build times?
 
