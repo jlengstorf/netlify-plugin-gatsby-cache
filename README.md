@@ -2,6 +2,8 @@
 
 Persist the Gatsby cache between Netlify builds for huge build speed improvements! ⚡️
 
+> **Note:** The functionality in this plugin is now available in the [Essential Gatsby build plugin](https://github.com/netlify/netlify-plugin-gatsby). Check out Essential Gatsby for additional framework-specific functionality on Netlify, including Gatsby Functions. If you choose to install it, you should remove this plugin first.
+
 ## Usage
 
 Currently, there are **two ways to install this plugin on your application**: 
